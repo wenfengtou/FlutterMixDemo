@@ -14,8 +14,7 @@ class MainActivity : AppCompatActivity() {
         helloTextView.setOnClickListener {
             startActivity(
                 FlutterActivity
-                    .withNewEngine()
-                    .initialRoute("route2")
+                    .withCachedEngine("my_engine_id")
                     .backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode.transparent)
                     .build(this)
             )
