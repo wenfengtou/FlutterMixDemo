@@ -1,11 +1,11 @@
 package com.wenfengtou.fluttermixdemo
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.TextView
-import io.flutter.embedding.android.FlutterActivity
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +21,11 @@ class MainActivity : AppCompatActivity() {
                     .build(this)
             )
              */
-            var intent: Intent = Intent(MainActivity@this, WebViewActivity::class.java)
+            var intent: Intent = Intent(MainActivity@ this, WebViewActivity::class.java)
             startActivity(intent)
         }
+        val intent: Intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+        startActivityForResult(intent, 1)
 
     }
 }

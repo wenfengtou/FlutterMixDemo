@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.*
 import androidx.core.content.ContextCompat.startActivity
+import java.util.*
 
 class WebViewActivity : AppCompatActivity() {
 
@@ -27,6 +28,7 @@ class WebViewActivity : AppCompatActivity() {
         mWebView.webViewClient = MyWebViewClient()
         mWebView.webChromeClient = MyWebChromeClient()
         mWebView.loadUrl("https://www.zhihu.com/")
+        mWebView.addJavascriptInterface(JavaScriptMethods(this), "")
     }
 
     inner  class MyWebViewClient:WebViewClient() {
