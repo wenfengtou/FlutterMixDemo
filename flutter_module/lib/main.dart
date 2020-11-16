@@ -32,6 +32,20 @@ Widget _widgetForRoute(String route) {
   }
 }
 
+class NewRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("New route"),
+      ),
+      body: Center(
+        child: Text("This is new route"),
+      ),
+    );
+  }
+}
+
 class MyTest extends StatefulWidget {
   @override
   _MyTestState createState() => _MyTestState();
@@ -44,7 +58,6 @@ class _MyTestState extends State<MyTest> {
     final wordPair = WordPair.random();
     return Text(wordPair.asPascalCase);
   }
-
 }
 
 class MyApp extends StatelessWidget {
@@ -89,9 +102,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static const nativeChannel =
-  const MethodChannel('com.example.flutter/native');
+      const MethodChannel('com.example.flutter/native');
   static const flutterChannel =
-  const MethodChannel('com.example.flutter/flutter');
+      const MethodChannel('com.example.flutter/flutter');
 
   int _counter = 0;
   String _backResult = "初步设置";
@@ -113,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Future<dynamic> handler(MethodCall call) async {
       switch (call.method) {
         case 'onActivityResult':
-        // 获取原生页面传递的参数
+          // 获取原生页面传递的参数
           print(call.arguments['message']);
           setState(() {
             _backResult = call.arguments['message'];
@@ -176,6 +189,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   Map<String, dynamic> result = {'name': '我从Flutter页面过来了'};
                   nativeChannel.invokeMethod('jumpToNative', result);
                 }),
+            FlatButton(
+              child: Text("open new route"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NewRoute();
+                }));
+              },
+            ),
           ],
         ),
       ),

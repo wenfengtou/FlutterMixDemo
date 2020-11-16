@@ -13,7 +13,7 @@ class MyApplication : Application() {
         super.onCreate()
         flutterEngine = FlutterEngine(this)
         // Configure an initial route.
-        flutterEngine.navigationChannel.setInitialRoute("route2") ;
+        flutterEngine.navigationChannel.setInitialRoute("route1") ;
         // Start executing Dart code to pre-warm the FlutterEngine.
         flutterEngine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()

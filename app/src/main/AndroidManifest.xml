@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wenfengtou.fluttermixdemo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -10,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlutterMixDemo">
+        <activity android:name=".WebViewActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
-            android:theme="@style/Theme.FlutterMixDemo"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize"
-            />
+            android:theme="@style/Theme.FlutterMixDemo"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
